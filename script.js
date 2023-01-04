@@ -5,6 +5,13 @@ const scriptTemplateElem = document.querySelector(".script-template");
 const scriptsElem = document.querySelector(".scripts");
 const addManuscriptButtonElem = document.querySelector("button.add");
 
+const titleFormElem = document.querySelector(".add-script  input.title");
+const authorFormElem = document.querySelector(".add-script  input.author");
+const pagesFormElem = document.querySelector(".add-script  input.pages");
+const completedFormElem = document.querySelector(
+  ".add-script  input.completed"
+);
+
 // Display Functions
 function updateScriptsDisplay() {
   scriptsElem.innerHTML = "";
@@ -23,7 +30,29 @@ function openNewManuscriptForm() {
 }
 
 function closeNewManuscriptForm() {
+  clearNewManuscriptForm();
   fullscreenElem.style.display = "none";
+}
+
+function clearNewManuscriptForm() {
+  titleFormElem.value = "";
+  authorFormElem.value = "";
+  pagesFormElem.value = "";
+  completedFormElem.value = "";
+}
+
+function addNewManuscriptForm() {
+  const manuscript = new Manuscript(
+    (title = titleFormElem.value),
+    (author = authorFormElem.value),
+    (pages = pagesFormElem.value),
+    (completed = completedFormElem.value)
+  );
+  console.log(manuscript);
+  manuscriptsArray.push(manuscript);
+  updateScriptsDisplay();
+  closeNewManuscriptForm();
+  clearNewManuscriptForm();
 }
 
 // Library Functions
@@ -37,12 +66,6 @@ function Manuscript(title, author, pages, completed) {
       this.completed ? "have completed" : "not completed yet"
     }`;
   };
-}
-
-function addManuscript() {
-  manuscriptsArray.push(testScript1);
-  console.log("pressed");
-  updateScriptsDisplay();
 }
 
 // Temp
