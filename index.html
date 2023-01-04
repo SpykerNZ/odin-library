@@ -9,10 +9,33 @@
     <title>Theatre Scripts</title>
   </head>
   <body>
+    <div class="fullscreen-container">
+      <div class="popup">
+        <p class="title">Add New Script</p>
+        <form class="add-script">
+          <label for="title">Title</label>
+          <input class="title" type="text" name="title" required />
+          <label for="author">Author</label>
+          <input class="author" type="text" name="author" required />
+          <label for="pages">Page Count</label>
+          <input class="pages" type="number" name="pages" required />
+          <div class="completed-row">
+            <label for="completed">Completed</label>
+            <input class="completed" type="checkbox" name="completed" />
+          </div>
+          <button type="submit">Add</button>
+          <button type="button" onclick="closeNewManuscriptForm()">
+            Cancel
+          </button>
+        </form>
+      </div>
+    </div>
     <div class="container">
       <div class="header">
         <p class="title">Theatre Scripts</p>
-        <button class="add">Add New Script</button>
+        <button class="add" onclick="openNewManuscriptForm()">
+          Add New Script
+        </button>
       </div>
       <div class="content">
         <div class="scripts">

@@ -1,6 +1,33 @@
-let scriptsArray = [];
+let manuscriptsArray = [];
 
-function Script(title, author, pages, completed) {
+const fullscreenElem = document.querySelector(".fullscreen-container");
+const scriptTemplateElem = document.querySelector(".script-template");
+const scriptsElem = document.querySelector(".scripts");
+const addManuscriptButtonElem = document.querySelector("button.add");
+
+// Display Functions
+function updateScriptsDisplay() {
+  scriptsElem.innerHTML = "";
+  manuscriptsArray.forEach((book) => {
+    const clone = scriptTemplateElem.content.cloneNode(true);
+    clone.querySelector(".title").textContent = book.title;
+    clone.querySelector(".author").textContent = book.author;
+    clone.querySelector(".pages").textContent = `${book.pages} Pages`;
+    scriptsElem.append(clone);
+  });
+}
+
+// Open Form
+function openNewManuscriptForm() {
+  fullscreenElem.style.display = "block";
+}
+
+function closeNewManuscriptForm() {
+  fullscreenElem.style.display = "none";
+}
+
+// Library Functions
+function Manuscript(title, author, pages, completed) {
   this.title = title;
   this.author = author;
   this.pages = pages;
@@ -12,41 +39,36 @@ function Script(title, author, pages, completed) {
   };
 }
 
-function updateScriptsDisplay() {
-  const scriptTemplateElem = document.querySelector(".script-template");
-  const scriptElem = document.querySelector(".scripts");
-
-  scriptsArray.forEach((book) => {
-    const clone = scriptTemplateElem.content.cloneNode(true);
-    clone.querySelector(".title").textContent = book.title;
-    clone.querySelector(".author").textContent = book.author;
-    clone.querySelector(".pages").textContent = `${book.pages} Pages`;
-    scriptElem.append(clone);
-  });
+function addManuscript() {
+  manuscriptsArray.push(testScript1);
+  console.log("pressed");
+  updateScriptsDisplay();
 }
 
-const testBook1 = new Script(
-  (title = "Six Go Mad In Christchurch"),
-  (author = "Jamie Spyker"),
+// Temp
+const testScript1 = new Manuscript(
+  (title = "Waiting for Godot"),
+  (author = "Samuel Beckett"),
   (pages = 20),
-  (read = true)
+  (completed = true)
 );
 
-const testBook2 = new Script(
+const testScript2 = new Manuscript(
   (title = "The Pratts"),
   (author = "Wendy Steeds"),
   (pages = 30),
-  (read = false)
+  (completed = false)
 );
 
-scriptsArray.push(testBook1);
-scriptsArray.push(testBook2);
+const testScript3 = new Manuscript(
+  (title = "Hamlet"),
+  (author = "William Shakespeare"),
+  (pages = 15),
+  (completed = false)
+);
+
+manuscriptsArray.push(testScript1);
+manuscriptsArray.push(testScript2);
+manuscriptsArray.push(testScript3);
 
 updateScriptsDisplay();
-
-// Display the books on the pages
-// Use tables or cards to store on the page
-// want to have a list of cards to store on the page!
-
-// Need a new book button to allow users to input information about books
-// Toggle the read status / remove books
