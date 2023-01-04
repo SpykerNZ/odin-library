@@ -172,17 +172,17 @@ label {
   overflow: hidden;
 }
 
-.item .red-filter:hover {
-  filter: invert(18%) sepia(82%) saturate(2430%) hue-rotate(346deg)
-    brightness(88%) contrast(87%);
-}
-
-.item .yellow-filter:hover {
+.item .filter-hover-yellow:hover {
   filter: invert(78%) sepia(93%) saturate(482%) hue-rotate(4deg) brightness(88%)
     contrast(92%);
 }
 
-.item .green-filter:hover {
+.item .filter-hover-green:hover {
   filter: invert(22%) sepia(86%) saturate(5349%) hue-rotate(137deg)
     brightness(102%) contrast(111%);
+}
+
+.item .filter-hover-red:hover {
+  filter: invert(18%) sepia(82%) saturate(2430%) hue-rotate(346deg)
+    brightness(88%) contrast(87%);
 }

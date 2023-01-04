@@ -30,6 +30,11 @@ function updateItemsDisplay(itemsArray) {
     if (item.favorite) {
       clone.querySelector(".item").classList.add("favorite");
     }
+    if (item.completed) {
+      clone.querySelector(".item .completed").src =
+        "./images/notebook-check.svg";
+      clone.querySelector(".item .completed").classList.add("filter-hover-red");
+    }
     itemsElem.append(clone);
   });
   updateItemsEventListeners(itemsArray);
