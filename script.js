@@ -34,9 +34,31 @@ function updateItemsDisplay(itemsArray) {
 
 function updateItemsEventListeners(itemsArray) {
   const deleteItemButtonElem = document.querySelectorAll(".item .delete");
+  const favoriteItemButtonElem = document.querySelectorAll(".item .favorite");
+  const completedItemButtonElem = document.querySelectorAll(".item .completed");
   deleteItemButtonElem.forEach((elem) => {
     elem.addEventListener("click", deleteItem);
   });
+  favoriteItemButtonElem.forEach((elem) => {
+    elem.addEventListener("click", favoriteItemToggle);
+  });
+  completedItemButtonElem.forEach((elem) => {
+    elem.addEventListener("click", completedItemToggle);
+  });
+}
+
+function favoriteItemToggle(e) {
+  const item = e.target.parentElement.parentElement;
+  manuscriptArray[item.dataset.id].favorite =
+    !manuscriptArray[item.dataset.id].favorite;
+  updateItemsDisplay(manuscriptArray);
+}
+
+function completedItemToggle(e) {
+  const item = e.target.parentElement.parentElement;
+  manuscriptArray[item.dataset.id].completed =
+    !manuscriptArray[item.dataset.id].completed;
+  updateItemsDisplay(manuscriptArray);
 }
 
 function deleteItem(e) {
@@ -85,11 +107,12 @@ function submitForm(e) {
 }
 
 // Library Functions
-function Manuscript(title, author, pages, completed) {
+function Manuscript(title, author, pages, completed, favorite) {
   this.title = title;
   this.author = author;
   this.pages = pages;
   this.completed = completed;
+  this.favorite = favorite;
 }
 
 // Default Items
@@ -97,21 +120,24 @@ const defaultItem1 = new Manuscript(
   (title = "Waiting for Godot"),
   (author = "Samuel Beckett"),
   (pages = 80),
-  (completed = true)
+  (completed = true),
+  (favorite = true)
 );
 
 const defaultItem2 = new Manuscript(
   (title = "The Mousetrap"),
   (author = "Agatha Christie"),
   (pages = 97),
-  (completed = false)
+  (completed = false),
+  (favorite = false)
 );
 
 const defaultItem3 = new Manuscript(
   (title = "Hamlet"),
   (author = "William Shakespeare"),
   (pages = 105),
-  (completed = false)
+  (completed = false),
+  (favorite = false)
 );
 
 manuscriptArray.push(defaultItem1);
