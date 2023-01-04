@@ -6,11 +6,11 @@ const itemsElem = document.querySelector(".items");
 const openFormButtonElem = document.querySelector("button.open-form");
 const formElem = document.querySelector(".add-form");
 const fullscreenFormElem = document.querySelector(".fullscreen-container");
-const titleFormElem = document.querySelector(".add-form  input.title");
-const authorFormElem = document.querySelector(".add-form  input.author");
-const pagesFormElem = document.querySelector(".add-form  input.pages");
-const completedFormElem = document.querySelector(".add-form  input.completed");
-const favoriteFormElem = document.querySelector(".add-form  input.favorite");
+const titleFormElem = document.querySelector(".add-form input.title");
+const authorFormElem = document.querySelector(".add-form input.author");
+const pagesFormElem = document.querySelector(".add-form input.pages");
+const completedFormElem = document.querySelector(".add-form input.completed");
+const favoriteFormElem = document.querySelector(".add-form input.favorite");
 const submitFormButtomElem = document.querySelector(".add-form input.submit");
 const closeFormButtonElem = document.querySelector(".add-form button.close");
 
@@ -88,6 +88,7 @@ function clearForm() {
   authorFormElem.value = "";
   pagesFormElem.value = "";
   completedFormElem.value = "";
+  favoriteFormElem.value = "";
 }
 
 function submitForm(e) {
