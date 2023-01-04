@@ -4,18 +4,19 @@ const itemTemplateElem = document.querySelector(".item-template");
 const itemsElem = document.querySelector(".items");
 
 const openFormButtonElem = document.querySelector("button.open-form");
-const formSubmitButtomElem = document.querySelector("button.form-submit");
-const formCloseButtonElem = document.querySelector("button.form-close");
 
+const formElem = document.querySelector(".add-form");
 const fullscreenFormElem = document.querySelector(".fullscreen-container");
-const titleFormElem = document.querySelector(".add-item  input.title");
-const authorFormElem = document.querySelector(".add-item  input.author");
-const pagesFormElem = document.querySelector(".add-item  input.pages");
-const completedFormElem = document.querySelector(".add-item  input.completed");
+const titleFormElem = document.querySelector(".add-form  input.title");
+const authorFormElem = document.querySelector(".add-form  input.author");
+const pagesFormElem = document.querySelector(".add-form  input.pages");
+const completedFormElem = document.querySelector(".add-form  input.completed");
+const submitFormButtomElem = document.querySelector(".add-form input.submit");
+const closeFormButtonElem = document.querySelector(".add-form button.close");
 
 openFormButtonElem.addEventListener("click", openForm);
-formCloseButtonElem.addEventListener("click", closeForm);
-formSubmitButtomElem.addEventListener("click", submitForm);
+closeFormButtonElem.addEventListener("click", closeForm);
+submitFormButtomElem.addEventListener("click", submitForm);
 
 // Display Functions
 function updateItemsDisplay(itemsArray) {
@@ -46,7 +47,16 @@ function clearForm() {
   completedFormElem.value = "";
 }
 
-function submitForm() {
+function submitForm(e) {
+  // TODO - simplify this
+  if (
+    titleFormElem.value === "" ||
+    authorFormElem.value === "" ||
+    pagesFormElem.value === ""
+  ) {
+    return;
+  }
+  e.preventDefault();
   const manuscript = new Manuscript(
     (title = titleFormElem.value),
     (author = authorFormElem.value),

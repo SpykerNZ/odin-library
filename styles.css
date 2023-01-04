@@ -72,22 +72,22 @@ label {
   text-align: center;
 }
 
-.add-item {
+.add-form {
   display: flex;
   flex-direction: column;
 }
 
-.add-item > label {
+.add-form > label {
   font-size: 16px;
   margin-top: 15px;
 }
 
-.add-item > input {
+.add-form > input {
   height: 30px;
   margin-top: 4px;
 }
 
-.add-item .completed-row {
+.add-form .completed-row {
   display: flex;
   margin-top: 20px;
   align-items: center;
@@ -99,7 +99,7 @@ label {
   height: 30px;
 }
 
-.add-item button {
+.add-form button {
   height: 30px;
   margin-top: 10px;
 }
