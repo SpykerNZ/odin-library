@@ -18,13 +18,13 @@ formCloseButtonElem.addEventListener("click", closeForm);
 formSubmitButtomElem.addEventListener("click", submitForm);
 
 // Display Functions
-function updateItemsDisplay(array) {
+function updateItemsDisplay(itemsArray) {
   itemsElem.innerHTML = "";
-  array.forEach((book) => {
+  itemsArray.forEach((item) => {
     const clone = itemTemplateElem.content.cloneNode(true);
-    clone.querySelector(".title").textContent = book.title;
-    clone.querySelector(".author").textContent = book.author;
-    clone.querySelector(".pages").textContent = `${book.pages} Pages`;
+    clone.querySelector(".title").textContent = item.title;
+    clone.querySelector(".author").textContent = item.author;
+    clone.querySelector(".pages").textContent = `${item.pages} Pages`;
     itemsElem.append(clone);
   });
 }
@@ -53,7 +53,6 @@ function submitForm() {
     (pages = pagesFormElem.value),
     (completed = completedFormElem.value)
   );
-  console.log(manuscript);
   manuscriptArray.push(manuscript);
   updateItemsDisplay(manuscriptArray);
   closeForm();
