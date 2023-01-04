@@ -143,25 +143,33 @@ label {
 .item > .left {
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 .item > .right {
   display: flex;
   align-items: center;
   gap: 10px;
+  width: 1 1 200px;
 }
 
 .item .title {
   font-weight: bold;
   font-size: 20px;
   text-overflow: ellipsis;
-  white-space: nowrap;
+  overflow: hidden;
+}
+
+.item .author {
+  text-overflow: ellipsis;
   overflow: hidden;
 }
 
 .item .pages {
   width: 80px;
   color: gray;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .item .red-filter:hover {
