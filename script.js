@@ -32,18 +32,16 @@ function updateItemsDisplay(itemsArray) {
   updateItemsEventListeners(itemsArray);
 }
 
-function updateItemsEventListeners(itemsArray) {
-  const deleteItemButtonElem = document.querySelectorAll(".item .delete");
-  const favoriteItemButtonElem = document.querySelectorAll(".item .favorite");
-  const completedItemButtonElem = document.querySelectorAll(".item .completed");
-  deleteItemButtonElem.forEach((elem) => {
-    elem.addEventListener("click", deleteItem);
-  });
-  favoriteItemButtonElem.forEach((elem) => {
-    elem.addEventListener("click", favoriteItemToggle);
-  });
-  completedItemButtonElem.forEach((elem) => {
-    elem.addEventListener("click", completedItemToggle);
+function updateItemsEventListeners() {
+  updateElemChildEventListener(".item .delete", deleteItem);
+  updateElemChildEventListener(".item .favorite", favoriteItemToggle);
+  updateElemChildEventListener(".item .completed", completedItemToggle);
+}
+
+function updateElemChildEventListener(selector, func) {
+  const elem = document.querySelectorAll(selector);
+  elem.forEach((e) => {
+    e.addEventListener("click", func);
   });
 }
 
