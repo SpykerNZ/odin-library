@@ -152,3 +152,8 @@ label {
 .info > .pages {
   width: 80px;
 }
+
+.info > .delete:hover {
+  filter: invert(18%) sepia(82%) saturate(2430%) hue-rotate(346deg)
+    brightness(88%) contrast(87%);
+}

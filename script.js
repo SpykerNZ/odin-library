@@ -21,13 +21,28 @@ submitFormButtomElem.addEventListener("click", submitForm);
 // Display Functions
 function updateItemsDisplay(itemsArray) {
   itemsElem.innerHTML = "";
-  itemsArray.forEach((item) => {
+  itemsArray.forEach((item, i) => {
     const clone = itemTemplateElem.content.cloneNode(true);
+    clone.querySelector(".item").dataset.id = i;
     clone.querySelector(".title").textContent = item.title;
     clone.querySelector(".author").textContent = item.author;
     clone.querySelector(".pages").textContent = `${item.pages} Pages`;
     itemsElem.append(clone);
   });
+  updateItemsEventListeners(itemsArray);
+}
+
+function updateItemsEventListeners(itemsArray) {
+  const deleteItemButtonElem = document.querySelectorAll(".item .delete");
+  deleteItemButtonElem.forEach((elem) => {
+    elem.addEventListener("click", deleteItem);
+  });
+}
+
+function deleteItem(e) {
+  const item = e.target.parentElement.parentElement;
+  manuscriptArray.splice(item.dataset.id, 1);
+  updateItemsDisplay(manuscriptArray);
 }
 
 // Open Form
