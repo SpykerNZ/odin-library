@@ -1,47 +1,46 @@
-let manuscriptsArray = [];
+let manuscriptArray = [];
 
-const fullscreenElem = document.querySelector(".fullscreen-container");
-const scriptTemplateElem = document.querySelector(".script-template");
-const scriptsElem = document.querySelector(".scripts");
-const addManuscriptButtonElem = document.querySelector("button.add");
+const itemTemplateElem = document.querySelector(".item-template");
+const itemsElem = document.querySelector(".items");
 
-const titleFormElem = document.querySelector(".add-script  input.title");
-const authorFormElem = document.querySelector(".add-script  input.author");
-const pagesFormElem = document.querySelector(".add-script  input.pages");
-const completedFormElem = document.querySelector(
-  ".add-script  input.completed"
-);
+const addItemButtonElem = document.querySelector("button.add");
+
+const fullscreenFormElem = document.querySelector(".fullscreen-container");
+const titleFormElem = document.querySelector(".add-item  input.title");
+const authorFormElem = document.querySelector(".add-item  input.author");
+const pagesFormElem = document.querySelector(".add-item  input.pages");
+const completedFormElem = document.querySelector(".add-item  input.completed");
 
 // Display Functions
-function updateScriptsDisplay() {
-  scriptsElem.innerHTML = "";
-  manuscriptsArray.forEach((book) => {
-    const clone = scriptTemplateElem.content.cloneNode(true);
+function updateItemsDisplay(array) {
+  itemsElem.innerHTML = "";
+  array.forEach((book) => {
+    const clone = itemTemplateElem.content.cloneNode(true);
     clone.querySelector(".title").textContent = book.title;
     clone.querySelector(".author").textContent = book.author;
     clone.querySelector(".pages").textContent = `${book.pages} Pages`;
-    scriptsElem.append(clone);
+    itemsElem.append(clone);
   });
 }
 
 // Open Form
-function openNewManuscriptForm() {
-  fullscreenElem.style.display = "block";
+function openForm() {
+  fullscreenFormElem.style.display = "block";
 }
 
-function closeNewManuscriptForm() {
-  clearNewManuscriptForm();
-  fullscreenElem.style.display = "none";
+function closeForm() {
+  clearForm();
+  fullscreenFormElem.style.display = "none";
 }
 
-function clearNewManuscriptForm() {
+function clearForm() {
   titleFormElem.value = "";
   authorFormElem.value = "";
   pagesFormElem.value = "";
   completedFormElem.value = "";
 }
 
-function addNewManuscriptForm() {
+function submitForm() {
   const manuscript = new Manuscript(
     (title = titleFormElem.value),
     (author = authorFormElem.value),
@@ -49,10 +48,10 @@ function addNewManuscriptForm() {
     (completed = completedFormElem.value)
   );
   console.log(manuscript);
-  manuscriptsArray.push(manuscript);
-  updateScriptsDisplay();
-  closeNewManuscriptForm();
-  clearNewManuscriptForm();
+  manuscriptArray.push(manuscript);
+  updateItemsDisplay(manuscriptArray);
+  closeForm();
+  clearForm();
 }
 
 // Library Functions
@@ -61,37 +60,32 @@ function Manuscript(title, author, pages, completed) {
   this.author = author;
   this.pages = pages;
   this.completed = completed;
-  this.info = function () {
-    return `${this.title} by ${this.author}, ${this.pages} pages, ${
-      this.completed ? "have completed" : "not completed yet"
-    }`;
-  };
 }
 
 // Temp
-const testScript1 = new Manuscript(
+const testItem1 = new Manuscript(
   (title = "Waiting for Godot"),
   (author = "Samuel Beckett"),
   (pages = 80),
   (completed = true)
 );
 
-const testScript2 = new Manuscript(
+const testItem2 = new Manuscript(
   (title = "The Mousetrap"),
   (author = "Agatha Christie"),
   (pages = 97),
   (completed = false)
 );
 
-const testScript3 = new Manuscript(
+const testItem3 = new Manuscript(
   (title = "Hamlet"),
   (author = "William Shakespeare"),
   (pages = 105),
   (completed = false)
 );
 
-manuscriptsArray.push(testScript1);
-manuscriptsArray.push(testScript2);
-manuscriptsArray.push(testScript3);
+manuscriptArray.push(testItem1);
+manuscriptArray.push(testItem2);
+manuscriptArray.push(testItem3);
 
-updateScriptsDisplay();
+updateItemsDisplay(manuscriptArray);

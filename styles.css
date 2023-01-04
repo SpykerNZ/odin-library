@@ -30,7 +30,7 @@ label {
   font-size: 30px;
 }
 
-.header > .add {
+.header > .open-form {
   width: 150px;
   height: 50px;
   border: none;
@@ -40,7 +40,7 @@ label {
   font-size: 16px;
 }
 
-.header > .add:hover {
+.header > .open-form:hover {
   background-color: #818cf8;
 }
 
@@ -72,22 +72,22 @@ label {
   text-align: center;
 }
 
-.add-script {
+.add-item {
   display: flex;
   flex-direction: column;
 }
 
-.add-script > label {
+.add-item > label {
   font-size: 16px;
   margin-top: 15px;
 }
 
-.add-script > input {
+.add-item > input {
   height: 30px;
   margin-top: 4px;
 }
 
-.add-script .completed-row {
+.add-item .completed-row {
   display: flex;
   margin-top: 20px;
   align-items: center;
@@ -99,12 +99,12 @@ label {
   height: 30px;
 }
 
-.add-script button {
+.add-item button {
   height: 30px;
   margin-top: 10px;
 }
 
-.scripts {
+.items {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
   align-items: center;
@@ -112,7 +112,7 @@ label {
   gap: 12px;
 }
 
-.script {
+.item {
   display: grid;
   align-items: center;
   height: 80px;
@@ -125,7 +125,7 @@ label {
   box-shadow: 0px 2px 5px gray;
 }
 
-.script > .title {
+.item > .title {
   grid-row: 1/2;
   font-weight: bold;
   font-size: 20px;
@@ -134,12 +134,12 @@ label {
   overflow: hidden;
 }
 
-.script > .author {
+.item > .author {
   grid-row: 2/3;
   align-self: flex-start;
 }
 
-.script > .info {
+.item > .info {
   display: flex;
   align-items: center;
   margin-left: 50px;

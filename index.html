@@ -12,7 +12,7 @@
     <div class="fullscreen-container">
       <div class="popup">
         <p class="title">Add New Script</p>
-        <form class="add-script">
+        <form class="add-item">
           <label for="title">Title</label>
           <input class="title" type="text" name="title" required />
           <label for="author">Author</label>
@@ -23,24 +23,20 @@
             <label for="completed">Completed</label>
             <input class="completed" type="checkbox" name="completed" />
           </div>
-          <button type="button" onclick="addNewManuscriptForm()">Add</button>
-          <button type="button" onclick="closeNewManuscriptForm()">
-            Cancel
-          </button>
+          <button type="button" onclick="submitForm()">Add</button>
+          <button type="button" onclick="closeForm()">Cancel</button>
         </form>
       </div>
     </div>
     <div class="container">
       <div class="header">
         <p class="title">Theatre Scripts</p>
-        <button class="add" onclick="openNewManuscriptForm()">
-          Add New Script
-        </button>
+        <button class="open-form" onclick="openForm()">Add New Script</button>
       </div>
       <div class="content">
-        <div class="scripts">
-          <template class="script-template">
-            <div class="script">
+        <div class="items">
+          <template class="item-template">
+            <div class="item">
               <p class="title">SCRIPT TITLE</p>
               <p class="author">FIRSTNAME LASTNAME</p>
               <div class="info">
