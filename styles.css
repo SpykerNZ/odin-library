@@ -113,20 +113,28 @@ label {
 }
 
 .item {
-  display: grid;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
   height: 80px;
-  grid-template-columns: 1fr 250px;
-  grid-template-rows: 1fr 1fr;
-  gap: 5px;
   padding: 20px;
   background-color: white;
   border-radius: 10px;
   box-shadow: 0px 2px 5px gray;
 }
 
-.item > .title {
-  grid-row: 1/2;
+.item > .left {
+  display: flex;
+  flex-direction: column;
+}
+
+.item > .right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.item .title {
   font-weight: bold;
   font-size: 20px;
   text-overflow: ellipsis;
@@ -134,36 +142,22 @@ label {
   overflow: hidden;
 }
 
-.item > .author {
-  grid-row: 2/3;
-  align-self: flex-start;
-}
-
-.item > .info {
-  display: flex;
-  align-items: center;
-  margin-left: 50px;
-  gap: 10px;
-  grid-area: 1 / 2 / 3 / 3;
-  justify-self: right;
+.item .pages {
+  width: 80px;
   color: gray;
 }
 
-.info > .pages {
-  width: 80px;
-}
-
-.info > .delete:hover {
+.item .red-filter:hover {
   filter: invert(18%) sepia(82%) saturate(2430%) hue-rotate(346deg)
     brightness(88%) contrast(87%);
 }
 
-.info > .favorite:hover {
+.item .yellow-filter:hover {
   filter: invert(78%) sepia(93%) saturate(482%) hue-rotate(4deg) brightness(88%)
     contrast(92%);
 }
 
-.info > .completed:hover {
+.item .green-filter:hover {
   filter: invert(22%) sepia(86%) saturate(5349%) hue-rotate(137deg)
     brightness(102%) contrast(111%);
 }
