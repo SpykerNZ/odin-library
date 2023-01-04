@@ -3,13 +3,19 @@ let manuscriptArray = [];
 const itemTemplateElem = document.querySelector(".item-template");
 const itemsElem = document.querySelector(".items");
 
-const addItemButtonElem = document.querySelector("button.add");
+const openFormButtonElem = document.querySelector("button.open-form");
+const formSubmitButtomElem = document.querySelector("button.form-submit");
+const formCloseButtonElem = document.querySelector("button.form-close");
 
 const fullscreenFormElem = document.querySelector(".fullscreen-container");
 const titleFormElem = document.querySelector(".add-item  input.title");
 const authorFormElem = document.querySelector(".add-item  input.author");
 const pagesFormElem = document.querySelector(".add-item  input.pages");
 const completedFormElem = document.querySelector(".add-item  input.completed");
+
+openFormButtonElem.addEventListener("click", openForm);
+formCloseButtonElem.addEventListener("click", closeForm);
+formSubmitButtomElem.addEventListener("click", submitForm);
 
 // Display Functions
 function updateItemsDisplay(array) {
@@ -62,30 +68,30 @@ function Manuscript(title, author, pages, completed) {
   this.completed = completed;
 }
 
-// Temp
-const testItem1 = new Manuscript(
+// Default Items
+const defaultItem1 = new Manuscript(
   (title = "Waiting for Godot"),
   (author = "Samuel Beckett"),
   (pages = 80),
   (completed = true)
 );
 
-const testItem2 = new Manuscript(
+const defaultItem2 = new Manuscript(
   (title = "The Mousetrap"),
   (author = "Agatha Christie"),
   (pages = 97),
   (completed = false)
 );
 
-const testItem3 = new Manuscript(
+const defaultItem3 = new Manuscript(
   (title = "Hamlet"),
   (author = "William Shakespeare"),
   (pages = 105),
   (completed = false)
 );
 
-manuscriptArray.push(testItem1);
-manuscriptArray.push(testItem2);
-manuscriptArray.push(testItem3);
+manuscriptArray.push(defaultItem1);
+manuscriptArray.push(defaultItem2);
+manuscriptArray.push(defaultItem3);
 
 updateItemsDisplay(manuscriptArray);
