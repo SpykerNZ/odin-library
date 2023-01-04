@@ -19,12 +19,20 @@
           <input class="author req" type="text" name="author" required />
           <label for="pages">Page Count</label>
           <input class="pages req" type="number" name="pages" required />
-          <div class="completed-row">
-            <label for="completed">Completed</label>
-            <input class="completed" type="checkbox" name="completed" />
+          <div class="checkboxes">
+            <div class="row">
+              <label for="completed">Completed</label>
+              <input class="completed" type="checkbox" name="completed" />
+            </div>
+            <div class="row">
+              <label for="favorite">Favorite</label>
+              <input class="favorite" type="checkbox" name="favorite" />
+            </div>
           </div>
-          <input class="submit" type="submit"></input>
-          <button class="close" type="button">Cancel</button>
+          <div class="buttons">
+            <input class="submit" type="submit"></input>
+            <button class="close" type="button">Cancel</button>
+          </div>
         </form>
       </div>
     </div>

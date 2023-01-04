@@ -60,11 +60,11 @@ label {
   top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border: 3px solid black;
   border-radius: 5px;
   background-color: #e2e8f0;
   padding: 20px;
   width: 300px;
+  box-shadow: 0px 0px 10px black;
 }
 
 .popup > .title {
@@ -87,21 +87,34 @@ label {
   margin-top: 4px;
 }
 
-.add-form .completed-row {
+.add-form .checkboxes {
   display: flex;
-  margin-top: 20px;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 16px;
+  margin-bottom: 10px;
+}
+
+.add-form .row {
+  display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.completed-row > input.completed {
+.row input.completed,
+.row input.favorite {
   width: 30px;
   height: 30px;
 }
 
-.add-form button {
+.add-form .buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.add-form .buttons > * {
   height: 30px;
-  margin-top: 10px;
 }
 
 .items {
@@ -121,6 +134,10 @@ label {
   background-color: white;
   border-radius: 10px;
   box-shadow: 0px 2px 5px gray;
+}
+
+.item.favorite {
+  background-color: lightyellow;
 }
 
 .item > .left {

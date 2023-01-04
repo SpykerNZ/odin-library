@@ -4,13 +4,13 @@ const itemTemplateElem = document.querySelector(".item-template");
 const itemsElem = document.querySelector(".items");
 
 const openFormButtonElem = document.querySelector("button.open-form");
-
 const formElem = document.querySelector(".add-form");
 const fullscreenFormElem = document.querySelector(".fullscreen-container");
 const titleFormElem = document.querySelector(".add-form  input.title");
 const authorFormElem = document.querySelector(".add-form  input.author");
 const pagesFormElem = document.querySelector(".add-form  input.pages");
 const completedFormElem = document.querySelector(".add-form  input.completed");
+const favoriteFormElem = document.querySelector(".add-form  input.favorite");
 const submitFormButtomElem = document.querySelector(".add-form input.submit");
 const closeFormButtonElem = document.querySelector(".add-form button.close");
 
@@ -27,6 +27,9 @@ function updateItemsDisplay(itemsArray) {
     clone.querySelector(".title").textContent = item.title;
     clone.querySelector(".author").textContent = item.author;
     clone.querySelector(".pages").textContent = `${item.pages} Pages`;
+    if (item.favorite) {
+      clone.querySelector(".item").classList.add("favorite");
+    }
     itemsElem.append(clone);
   });
   updateItemsEventListeners(itemsArray);
@@ -96,7 +99,8 @@ function submitForm(e) {
     (title = titleFormElem.value),
     (author = authorFormElem.value),
     (pages = pagesFormElem.value),
-    (completed = completedFormElem.value)
+    (completed = completedFormElem.value),
+    (favorite = favoriteFormElem.value)
   );
   manuscriptArray.push(manuscript);
   updateItemsDisplay(manuscriptArray);
