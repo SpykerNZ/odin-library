@@ -72,21 +72,21 @@ function Manuscript(title, author, pages, completed) {
 const testScript1 = new Manuscript(
   (title = "Waiting for Godot"),
   (author = "Samuel Beckett"),
-  (pages = 20),
+  (pages = 80),
   (completed = true)
 );
 
 const testScript2 = new Manuscript(
-  (title = "The Pratts"),
-  (author = "Wendy Steeds"),
-  (pages = 30),
+  (title = "The Mousetrap"),
+  (author = "Agatha Christie"),
+  (pages = 97),
   (completed = false)
 );
 
 const testScript3 = new Manuscript(
   (title = "Hamlet"),
   (author = "William Shakespeare"),
-  (pages = 15),
+  (pages = 105),
   (completed = false)
 );
 
