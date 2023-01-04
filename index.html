@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+    <title>Theatre Scripts</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <p class="title">Theatre Scripts</p>
+        <button class="add">Add New Script</button>
+      </div>
+      <div class="content">
+        <div class="scripts">
+          <template class="script-template">
+            <div class="script">
+              <p class="title">SCRIPT TITLE</p>
+              <p class="author">FIRSTNAME LASTNAME</p>
+              <div class="info">
+                <p class="pages">##### Pages</p>
+                <img
+                  class="completed"
+                  src="./images/notebook.svg"
+                  alt="book completed icon"
+                  width="40px"
+                />
+                <img
+                  class="favorite"
+                  src="./images/star-outline.svg"
+                  alt="book favorited icon"
+                  width="40px"
+                />
+                <img
+                  class="delete"
+                  src="./images/trash-can.svg"
+                  alt="delete book icon"
+                  width="40px"
+                />
+              </div>
+            </div>
+          </template>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
