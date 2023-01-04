@@ -68,7 +68,7 @@ function deleteItem(e) {
   updateItemsDisplay(manuscriptArray);
 }
 
-// Open Form
+// Form Controls
 function openForm() {
   fullscreenFormElem.style.display = "block";
 }
@@ -86,7 +86,6 @@ function clearForm() {
 }
 
 function submitForm(e) {
-  // TODO - simplify this
   if (
     titleFormElem.value === "" ||
     authorFormElem.value === "" ||
@@ -108,7 +107,6 @@ function submitForm(e) {
   clearForm();
 }
 
-// Library Functions
 function Manuscript(title, author, pages, completed, favorite) {
   this.title = title;
   this.author = author;
@@ -118,32 +116,32 @@ function Manuscript(title, author, pages, completed, favorite) {
 }
 
 // Default Items
-const defaultItem1 = new Manuscript(
-  (title = "Waiting for Godot"),
-  (author = "Samuel Beckett"),
-  (pages = 80),
-  (completed = true),
-  (favorite = true)
+manuscriptArray.push(
+  new Manuscript(
+    (title = "Waiting for Godot"),
+    (author = "Samuel Beckett"),
+    (pages = 80),
+    (completed = true),
+    (favorite = true)
+  )
 );
-
-const defaultItem2 = new Manuscript(
-  (title = "The Mousetrap"),
-  (author = "Agatha Christie"),
-  (pages = 97),
-  (completed = false),
-  (favorite = false)
+manuscriptArray.push(
+  new Manuscript(
+    (title = "The Mousetrap"),
+    (author = "Agatha Christie"),
+    (pages = 97),
+    (completed = false),
+    (favorite = false)
+  )
 );
-
-const defaultItem3 = new Manuscript(
-  (title = "Hamlet"),
-  (author = "William Shakespeare"),
-  (pages = 105),
-  (completed = false),
-  (favorite = false)
+manuscriptArray.push(
+  new Manuscript(
+    (title = "Hamlet"),
+    (author = "William Shakespeare"),
+    (pages = 105),
+    (completed = false),
+    (favorite = false)
+  )
 );
-
-manuscriptArray.push(defaultItem1);
-manuscriptArray.push(defaultItem2);
-manuscriptArray.push(defaultItem3);
 
 updateItemsDisplay(manuscriptArray);
