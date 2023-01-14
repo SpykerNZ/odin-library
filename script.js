@@ -1,5 +1,3 @@
-let manuscriptArray = [];
-
 const itemTemplateElem = document.querySelector(".item-template");
 const itemsElem = document.querySelector(".items");
 
@@ -55,22 +53,20 @@ function updateElemChildEventListener(selector, func) {
 
 function favoriteItemToggle(e) {
   const item = e.target.parentElement.parentElement;
-  manuscriptArray[item.dataset.id].favorite =
-    !manuscriptArray[item.dataset.id].favorite;
-  updateItemsDisplay(manuscriptArray);
+  manuscripts.toggleFavorite(item.dataset.id);
+  updateItemsDisplay(manuscripts.array);
 }
 
 function completedItemToggle(e) {
   const item = e.target.parentElement.parentElement;
-  manuscriptArray[item.dataset.id].completed =
-    !manuscriptArray[item.dataset.id].completed;
-  updateItemsDisplay(manuscriptArray);
+  manuscripts.toggleCompleted(item.dataset.id);
+  updateItemsDisplay(manuscripts.array);
 }
 
 function deleteItem(e) {
   const item = e.target.parentElement.parentElement;
-  manuscriptArray.splice(item.dataset.id, 1);
-  updateItemsDisplay(manuscriptArray);
+  manuscripts.remove(item.dataset.id);
+  updateItemsDisplay(manuscripts.array);
 }
 
 // Form Controls
@@ -107,8 +103,8 @@ function submitForm(e) {
     (completed = completedFormElem.value),
     (favorite = favoriteFormElem.value)
   );
-  manuscriptArray.push(manuscript);
-  updateItemsDisplay(manuscriptArray);
+  manuscripts.add(manuscript);
+  updateItemsDisplay(manuscripts.array);
   closeForm();
   clearForm();
 }
@@ -123,8 +119,30 @@ class Manuscript {
   }
 }
 
+class Manuscripts {
+  array = [];
+
+  add(manuscript) {
+    this.array.push(manuscript);
+  }
+
+  remove(id) {
+    this.array.splice(id, 1);
+  }
+
+  toggleFavorite(id) {
+    this.array[id].favorite = !this.array[id].favorite;
+  }
+
+  toggleCompleted(id) {
+    this.array[id].completed = !this.array[id].completed;
+  }
+}
+
+const manuscripts = new Manuscripts();
+
 // Default Items
-manuscriptArray.push(
+manuscripts.add(
   new Manuscript(
     (title = "Waiting for Godot"),
     (author = "Samuel Beckett"),
@@ -133,7 +151,7 @@ manuscriptArray.push(
     (favorite = true)
   )
 );
-manuscriptArray.push(
+manuscripts.add(
   new Manuscript(
     (title = "The Mousetrap"),
     (author = "Agatha Christie"),
@@ -142,7 +160,7 @@ manuscriptArray.push(
     (favorite = false)
   )
 );
-manuscriptArray.push(
+manuscripts.add(
   new Manuscript(
     (title = "Hamlet"),
     (author = "William Shakespeare"),
@@ -152,4 +170,4 @@ manuscriptArray.push(
   )
 );
 
-updateItemsDisplay(manuscriptArray);
+updateItemsDisplay(manuscripts.array);
