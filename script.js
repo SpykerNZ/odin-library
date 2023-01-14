@@ -113,12 +113,14 @@ function submitForm(e) {
   clearForm();
 }
 
-function Manuscript(title, author, pages, completed, favorite) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.completed = completed;
-  this.favorite = favorite;
+class Manuscript {
+  constructor(title, author, pages, completed, favorite) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.completed = completed;
+    this.favorite = favorite;
+  }
 }
 
 // Default Items
